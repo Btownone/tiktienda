@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Socios TikTok Shop México — Lanza tu propia tienda</title>
+<title>TikTienda — Lanza tu tienda en TikTok Shop México</title>
+<link rel="icon" type="image/svg+xml" href="img/logo-icon.svg" />
 <meta name="description" content="Asóciate con un equipo internacional de e-commerce que ya genera ventas en TikTok Shop México. Tú eres dueño de la tienda; nosotros operamos, fabricamos y enviamos." />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
@@ -43,7 +44,7 @@
     background:rgba(10,10,15,.74);border-bottom:1px solid var(--line)}
   .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0}
   .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-  .logo{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;font-weight:900;color:#0a0a0f;font-size:18px}
+  .logo{width:36px;height:36px;border-radius:10px;display:block}
   .bar-actions{display:flex;align-items:center;gap:10px}
   .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
   .toggle button{background:transparent;color:var(--ink-soft);border:0;padding:7px 13px;cursor:pointer;font:inherit;font-weight:700;font-size:.85rem}
@@ -173,7 +174,7 @@
     .flyer{display:block;color:#000;font-size:10.5pt;line-height:1.4}
     .flyer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #fe2c55;padding-bottom:9px;margin-bottom:12px}
     .flyer-logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:16pt}
-    .flyer-logo .lg{width:36px;height:36px;border-radius:9px;background:linear-gradient(105deg,#25f4ee,#fe2c55);color:#fff;display:grid;place-items:center;font-size:18pt}
+    .flyer-logo .lg{width:40px;height:40px;border-radius:9px;display:block}
     .flyer h1{font-size:21pt;margin:0 0 4px;color:#000;line-height:1.1}
     .flyer .sub{font-size:11pt;color:#333;margin:0 0 6px}
     .flyer .proofbar{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 12px;font-weight:700;color:#fe2c55;font-size:10pt}
@@ -194,7 +195,7 @@
 <div class="no-print">
 <header>
   <div class="wrap bar">
-    <div class="brand"><span class="logo">T</span> Socios TikTok Shop México</div>
+    <div class="brand"><img class="logo" src="img/logo-icon.svg" alt="" /> TikTienda</div>
     <div class="bar-actions">
       <div class="toggle" role="group" aria-label="idioma">
         <button id="lang-es" class="active" onclick="setLang('es')">ES</button>
@@ -577,8 +578,8 @@
 
 <footer>
   <div class="wrap">
-    <span class="lang-es">© 2026 Socios TikTok Shop México · No afiliado oficialmente a TikTok. TikTok es marca de sus respectivos dueños. Las ventas no están garantizadas.</span>
-    <span class="lang-en">© 2026 TikTok Shop Mexico Partners · Not officially affiliated with TikTok. TikTok is a trademark of its respective owners. Sales are not guaranteed.</span>
+    <span class="lang-es">© 2026 TikTienda · No afiliado oficialmente a TikTok. TikTok es marca de sus respectivos dueños. Las ventas no están garantizadas.</span>
+    <span class="lang-en">© 2026 TikTienda · Not officially affiliated with TikTok. TikTok is a trademark of its respective owners. Sales are not guaranteed.</span>
   </div>
 </footer>
 
@@ -592,7 +593,7 @@
 <!-- ===================== PRINT ONE-SHEET (ES + EN) ===================== -->
 <div class="flyer">
   <div class="flyer-head">
-    <div class="flyer-logo"><span class="lg">T</span> Socios TikTok Shop México</div>
+    <div class="flyer-logo"><img class="lg" src="img/logo-icon.svg" alt="" /> TikTienda</div>
     <div style="text-align:right;font-size:8.5pt;color:#555">🇲🇽 TikTok Shop México · 2026</div>
   </div>
   <h1>Lanza tu propia tienda en TikTok Shop México</h1>
@@ -646,7 +647,7 @@ const CONFIG = {
   contactName:     "Bernardo",
   whatsappNumber:  "5215555555555",            // ⚠️ código país + número, SIN + ni espacios. MX = 52 + 10 dígitos
   phoneDisplay:    "+52 1 55 5555 5555",       // ⚠️ cómo se muestra
-  whatsappMessage: "Hola, vi la página de Socios TikTok Shop México y quiero información para aplicar.",
+  whatsappMessage: "Hola, vi la página de TikTienda y quiero información para aplicar.",
   siteUrl:         "https://btownone.github.io/tiktok-shop-mexico/" // URL pública (GitHub Pages) → es lo que abre el QR
 };
 /* ============================================================ */
@@ -669,7 +670,7 @@ function submitApply(e){
   e.preventDefault();
   var f=e.target, g=function(n){return (f.elements[n]&&f.elements[n].value||"").trim();};
   var lines=[
-    "*Nueva solicitud / New application — TikTok Shop México*","",
+    "*Nueva solicitud / New application — TikTienda (TikTok Shop México)*","",
     "Nombre / Name: "+g("name"),
     "Teléfono / Phone: "+g("phone"),
     "Email: "+g("email"),
