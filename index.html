@@ -227,6 +227,25 @@
   .store-new .msg{color:var(--ink-soft);font-weight:600;font-size:.92rem}
   .stores-note{margin-top:14px;font-size:.85rem}
 
+  /* ===== real-data panels (dashboard look, no images = never blank) ===== */
+  .datapanel{background:linear-gradient(180deg,#13131d,#0d0d14);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .dp-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+  .dp-title{font-weight:800;font-size:.95rem}
+  .dp-live{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+  .dp-live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+  .bars{display:flex;flex-direction:column;gap:11px}
+  .bar-row{display:grid;grid-template-columns:118px 1fr 84px;align-items:center;gap:10px;font-size:.85rem}
+  .bar-row .lab{color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar-track{height:10px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+  .bar-fill{height:100%;min-width:10px;border-radius:99px;background:var(--grad)}
+  .bar-row .val{font-weight:800;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+  @media(max-width:720px){.bar-row{grid-template-columns:78px 1fr 68px;font-size:.8rem}}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+  .kpi .v{font-size:clamp(1.2rem,2.5vw,1.65rem);font-weight:900;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .kpi .k{font-size:.78rem;color:var(--ink-mute);margin-top:2px}
+
   /* ===== PRINT: one-page bilingual flyer ===== */
   .flyer{display:none}
   @media print{
@@ -306,8 +325,18 @@
     </div>
 
     <div class="hero-media">
-      <img src="img/analytics-dashboard.svg" alt="Panel de ventas en vivo — TikTok Shop México" />
-      <div class="cap"><span class="lang-es">Gestionamos las 6 tiendas desde un solo panel — pedidos, inventario y envíos en tiempo real.</span><span class="lang-en">We manage all 6 stores from one dashboard — orders, inventory and shipping in real time.</span></div>
+      <div class="datapanel">
+        <div class="dp-head">
+          <div class="dp-title"><span class="lang-es">Ventas por tienda · últimos 30 días (MXN)</span><span class="lang-en">Sales by store · last 30 days (MXN)</span></div>
+          <span class="dp-live"><i></i><span class="lang-es">En vivo</span><span class="lang-en">Live</span></span>
+        </div>
+        <div class="bars">
+          <div class="bar-row"><div class="lab">Balany shop</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="val">$141,228</div></div>
+          <div class="bar-row"><div class="lab">Scorpion Bay</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="val">$25,114</div></div>
+          <div class="bar-row"><div class="lab"><span class="lang-es">+4 tiendas nuevas</span><span class="lang-en">+4 new stores</span></div><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><div class="val">$7,811</div></div>
+        </div>
+      </div>
+      <div class="cap"><span class="lang-es">Datos reales de nuestro panel (ERP) · 1 CNY = 2.56 MXN.</span><span class="lang-en">Real data from our dashboard (ERP) · 1 CNY = 2.56 MXN.</span></div>
     </div>
   </div>
 </section>
@@ -358,8 +387,28 @@
         <p class="muted" style="margin-top:10px"><span class="lang-es">Y seguimos abriendo tiendas nuevas cada semana.</span><span class="lang-en">And we keep opening new stores every week.</span></p>
       </div>
       <div>
-        <img class="featimg" src="img/sales-7day.svg" alt="Resumen de ventas — últimos 6 días" />
+        <div class="datapanel">
+          <div class="dp-head">
+            <div class="dp-title"><span class="lang-es">Más vendido · últimos 30 días</span><span class="lang-en">Best-seller · last 30 days</span></div>
+            <span class="dp-live"><i></i><span class="lang-es">En vivo</span><span class="lang-en">Live</span></span>
+          </div>
+          <p class="muted" style="margin:-4px 0 14px;font-size:.85rem"><span class="lang-es">Camiseta de Fútbol México Mundial 2026 — piezas por talla</span><span class="lang-en">Mexico World Cup 2026 fútbol tee — units by size</span></p>
+          <div class="bars">
+            <div class="bar-row"><div class="lab">M</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="val">95</div></div>
+            <div class="bar-row"><div class="lab">L</div><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><div class="val">65</div></div>
+            <div class="bar-row"><div class="lab">XL</div><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><div class="val">49</div></div>
+            <div class="bar-row"><div class="lab">S</div><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div><div class="val">32</div></div>
+            <div class="bar-row"><div class="lab">XXL</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="val">24</div></div>
+          </div>
+          <p class="muted" style="margin:14px 0 0;font-size:.82rem"><span class="lang-es">265 piezas de un solo diseño en 30 días.</span><span class="lang-en">265 units of a single design in 30 days.</span></p>
+        </div>
       </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">66</div><div class="k"><span class="lang-es">pedidos hoy</span><span class="lang-en">orders today</span></div></div>
+      <div class="kpi"><div class="v">1,770</div><div class="k"><span class="lang-es">pedidos · 30 días</span><span class="lang-en">orders · 30 days</span></div></div>
+      <div class="kpi"><div class="v">~$98</div><div class="k"><span class="lang-es">MXN ticket promedio</span><span class="lang-en">MXN avg order</span></div></div>
+      <div class="kpi"><div class="v">3.5%</div><div class="k"><span class="lang-es">tasa de devolución</span><span class="lang-en">return rate</span></div></div>
     </div>
   </div>
 </section>
