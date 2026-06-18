@@ -180,6 +180,53 @@
   body{padding-bottom:78px}
   footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink-mute);font-size:.88rem}
 
+  /* ===== parallax bands ===== */
+  .px{position:relative;background-color:#0a0a0f;background-position:center;background-size:cover;
+    background-repeat:no-repeat;background-attachment:fixed}
+  .px>.wrap{position:relative;z-index:1}
+  .px::before{content:"";position:absolute;inset:0;z-index:0}
+  .px-hero::before{background:
+    radial-gradient(900px 520px at 82% 4%,rgba(37,244,238,.20),transparent 60%),
+    linear-gradient(180deg,rgba(10,10,15,.62),rgba(10,10,15,.80) 62%,var(--bg))}
+  .px-dark::before{background:linear-gradient(180deg,rgba(10,10,15,.84),rgba(10,10,15,.93))}
+  .px-cta::before{background:
+    radial-gradient(700px 400px at 15% 100%,rgba(254,44,85,.22),transparent 60%),
+    linear-gradient(180deg,rgba(10,10,15,.88),rgba(10,10,15,.95))}
+  /* fixed-attachment is janky/disabled on mobile + iOS — fall back to scroll */
+  @media(max-width:820px){.px{background-attachment:scroll}}
+  @media(prefers-reduced-motion:reduce){.px{background-attachment:scroll}}
+
+  /* ===== our stores (data-driven) ===== */
+  .stores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+  @media(max-width:900px){.stores-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.stores-grid{grid-template-columns:1fr}}
+  .store-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;display:flex;flex-direction:column;gap:14px;transition:transform .14s,border-color .14s}
+  .store-card:hover{transform:translateY(-3px);border-color:rgba(37,244,238,.4)}
+  .store-top{display:flex;align-items:center;gap:12px}
+  .store-av{width:48px;height:48px;border-radius:13px;flex:0 0 auto;object-fit:cover;
+    background:linear-gradient(135deg,var(--cyan),var(--pink));display:grid;place-items:center;
+    color:#0a0a0f;font-weight:900;font-size:1.1rem;border:0}
+  .store-id b{display:block;font-weight:800;line-height:1.2}
+  .store-id span{font-size:.85rem;color:var(--ink-mute)}
+  .store-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:.72rem;
+    font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em}
+  .store-live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  .store-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--line);padding-top:14px}
+  .store-stats .v{font-weight:900;font-size:1.12rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+  .store-stats .k{font-size:.72rem;color:var(--ink-mute)}
+  .store-card .btn{margin-top:auto;justify-content:center}
+  .store-live.new{color:var(--cyan)}
+  .store-live.new i{background:var(--cyan);animation:pulseC 1.8s infinite}
+  @keyframes pulseC{0%{box-shadow:0 0 0 0 rgba(37,244,238,.55)}70%{box-shadow:0 0 0 8px rgba(37,244,238,0)}100%{box-shadow:0 0 0 0 rgba(37,244,238,0)}}
+  .store-new{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:center;gap:2px;min-height:62px}
+  .store-new .v{font-weight:900;font-size:1.55rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .store-new .k{font-size:.78rem;color:var(--ink-soft)}
+  .store-new .msg{color:var(--ink-soft);font-weight:600;font-size:.92rem}
+  .stores-note{margin-top:14px;font-size:.85rem}
+
   /* ===== PRINT: one-page bilingual flyer ===== */
   .flyer{display:none}
   @media print{
@@ -223,7 +270,7 @@
 </header>
 
 <!-- ===================== HERO (shared shell, bilingual text) ===================== -->
-<section class="hero">
+<section class="hero px px-hero" style="background-image:url('img/bg-hero.jpg')">
   <div class="wrap">
     <span class="eyebrow">🔒 <span class="lang-es">Invitación exclusiva · amigos y familia</span><span class="lang-en">Exclusive invite · friends &amp; family</span></span>
 
@@ -252,15 +299,15 @@
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="n">50–100+</div><div class="l"><span class="lang-es">pedidos por día</span><span class="lang-en">orders per day</span></div></div>
-      <div class="stat"><div class="n">75k–105k+</div><div class="l"><span class="lang-es">MXN en ventas / mes</span><span class="lang-en">MXN in sales / month</span></div></div>
-      <div class="stat"><div class="n">$4k–6k+</div><div class="l"><span class="lang-es">USD brutos / mes</span><span class="lang-en">USD gross / month</span></div></div>
-      <div class="stat"><div class="n">100+</div><div class="l"><span class="lang-es">pedidos en un solo día</span><span class="lang-en">orders in a single day</span></div></div>
+      <div class="stat"><div class="n">2,199</div><div class="l"><span class="lang-es">pedidos en total</span><span class="lang-en">total orders</span></div></div>
+      <div class="stat"><div class="n">$174K</div><div class="l"><span class="lang-es">MXN en ventas (30 días)</span><span class="lang-en">MXN in sales (30 days)</span></div></div>
+      <div class="stat"><div class="n">$10K+</div><div class="l"><span class="lang-es">USD en ventas / mes</span><span class="lang-en">USD in sales / month</span></div></div>
+      <div class="stat"><div class="n">2,058</div><div class="l"><span class="lang-es">clientes atendidos</span><span class="lang-en">customers served</span></div></div>
     </div>
 
     <div class="hero-media">
       <img src="img/analytics-dashboard.svg" alt="Panel de ventas en vivo — TikTok Shop México" />
-      <div class="cap"><span class="lang-es">Nuestro panel en vivo — ventas reales de nuestras tiendas en TikTok Shop México.</span><span class="lang-en">Our live dashboard — real sales from our TikTok Shop Mexico stores.</span></div>
+      <div class="cap"><span class="lang-es">Gestionamos las 6 tiendas desde un solo panel — pedidos, inventario y envíos en tiempo real.</span><span class="lang-en">We manage all 6 stores from one dashboard — orders, inventory and shipping in real time.</span></div>
     </div>
   </div>
 </section>
@@ -301,24 +348,32 @@
     <div class="grid grid-2">
       <div class="card">
         <ul class="check">
-          <li class="lang-es">50–100+ pedidos por día</li><li class="lang-en">50–100+ orders per day</li>
-          <li class="lang-es">75,000–105,000+ MXN en ventas mensuales</li><li class="lang-en">75,000–105,000+ MXN in monthly sales</li>
-          <li class="lang-es">Aprox. $4,000–$6,000+ USD en ventas brutas mensuales</li><li class="lang-en">Approx. $4,000–$6,000+ USD in monthly gross sales</li>
-          <li class="lang-es">Múltiples tiendas ya aprobadas y operando</li><li class="lang-en">Multiple stores already approved and operating</li>
-          <li class="lang-es">Una tienda socia ya superó 100 pedidos en un día</li><li class="lang-en">A partner store has already passed 100 orders in a single day</li>
+          <li class="lang-es">6 tiendas operando en TikTok Shop México</li><li class="lang-en">6 stores operating on TikTok Shop Mexico</li>
+          <li class="lang-es">2,199 pedidos y 2,058 clientes hasta hoy</li><li class="lang-en">2,199 orders and 2,058 customers to date</li>
+          <li class="lang-es">$174,000+ MXN en ventas en los últimos 30 días</li><li class="lang-en">$174,000+ MXN in sales in the last 30 days</li>
+          <li class="lang-es">Aprox. $10,000+ USD en ventas mensuales</li><li class="lang-en">Approx. $10,000+ USD in monthly sales</li>
+          <li class="lang-es">Tienda líder: 1,790 pedidos y ~$190,000 MXN en ventas</li><li class="lang-en">Top store: 1,790 orders and ~$190,000 MXN in sales</li>
+          <li class="lang-es">Solo 3.5% de devoluciones — clientes satisfechos</li><li class="lang-en">Only 3.5% returns — happy customers</li>
         </ul>
-        <p class="muted" style="margin-top:10px"><span class="lang-es">El crecimiento ha superado nuestras expectativas.</span><span class="lang-en">The growth has exceeded our expectations.</span></p>
+        <p class="muted" style="margin-top:10px"><span class="lang-es">Y seguimos abriendo tiendas nuevas cada semana.</span><span class="lang-en">And we keep opening new stores every week.</span></p>
       </div>
       <div>
         <img class="featimg" src="img/sales-7day.svg" alt="Resumen de ventas — últimos 6 días" />
       </div>
     </div>
-    <div class="proof" style="margin-top:16px">
-      <div class="shot"><img src="img/dashboard-1.png" alt="" onerror="this.replaceWith(document.createTextNode('Captura del panel real / Real dashboard screenshot'))"></div>
-      <div class="shot"><img src="img/dashboard-2.png" alt="" onerror="this.replaceWith(document.createTextNode('Captura del panel real / Real dashboard screenshot'))"></div>
-      <div class="shot"><img src="img/dashboard-3.png" alt="" onerror="this.replaceWith(document.createTextNode('Captura del panel real / Real dashboard screenshot'))"></div>
+  </div>
+</section>
+
+<!-- ===================== OUR STORES (data-driven) ===================== -->
+<section id="tiendas">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="lang-es">Nuestras tiendas</span><span class="lang-en">Our stores</span></div>
+      <div class="lang-es"><h2>Tiendas reales, operando ahora mismo</h2><p class="big-lead">Estas son nuestras tiendas activas en TikTok Shop México. No es teoría — son ventas reales, todos los días. Tu tienda puede ser la siguiente.</p></div>
+      <div class="lang-en"><h2>Real stores, operating right now</h2><p class="big-lead">These are our active TikTok Shop Mexico stores. Not theory — real sales, every day. Yours could be next.</p></div>
     </div>
-    <p class="muted" style="margin-top:10px;font-size:.85rem"><span class="lang-es">↑ Reemplaza estos espacios con tus capturas reales (img/dashboard-1…3.png).</span><span class="lang-en">↑ Replace these slots with your real screenshots (img/dashboard-1…3.png).</span></p>
+    <div id="stores-grid" class="stores-grid"><!-- rendered from CONFIG.stores --></div>
+    <p class="stores-note muted"><span class="lang-es">Cifras de los últimos 30 días, tomadas directamente de nuestro panel. Actualizadas periódicamente.</span><span class="lang-en">Last-30-day figures, pulled directly from our dashboard. Updated periodically.</span></p>
   </div>
 </section>
 
@@ -327,8 +382,8 @@
   <div class="wrap">
     <div class="section-head">
       <div class="kicker"><span class="lang-es">Productos que ya venden</span><span class="lang-en">Products already selling</span></div>
-      <div class="lang-es"><h2>Playeras que ya se venden todos los días</h2><p>Productos reales de nuestras tiendas. Agregamos diseños nuevos constantemente — como playeras "I ❤️ México" para hombre y mujer.</p></div>
-      <div class="lang-en"><h2>Tees that already sell every day</h2><p>Real products from our stores. We add new designs constantly — like "I ❤️ Mexico" tees for men and women.</p></div>
+      <div class="lang-es"><h2>Playeras que ya se venden todos los días</h2><p>Diseños de nuestras tiendas. Nuestro más vendido: la <b>Camiseta de Fútbol México Mundial 2026</b> — más de 250 vendidas el último mes. Agregamos diseños nuevos constantemente.</p></div>
+      <div class="lang-en"><h2>Tees that already sell every day</h2><p>Designs from our stores. Our best-seller: the <b>Mexico World Cup 2026 fútbol tee</b> — 250+ sold last month. We add new designs constantly.</p></div>
     </div>
     <div class="gallery">
       <figure><img src="img/product-1.jpg" onerror="this.onerror=null;this.src='img/camiseta-1.svg'" alt="Camiseta de fútbol"><figcaption>Camiseta de Fútbol</figcaption></figure>
@@ -338,11 +393,10 @@
       <figure><img src="img/product-5.jpg" alt="Camiseta Día de Muertos"><figcaption><span class="lang-es">Camiseta Catrina</span><span class="lang-en">Day of the Dead tee</span></figcaption></figure>
       <figure><img src="img/product-6.jpg" alt="Camiseta México Lindo"><figcaption><span class="lang-es">Camiseta para mujer</span><span class="lang-en">Women's tee</span></figcaption></figure>
     </div>
-    <p class="muted" style="margin-top:12px;font-size:.85rem"><span class="lang-es">Para fotos reales: guarda las imágenes de tus listados de TikTok en <b>img/</b> como product-1.png, product-2.png… y aparecen solas.</span><span class="lang-en">For real photos: save your TikTok listing images into <b>img/</b> as product-1.png, product-2.png… and they appear automatically.</span></p>
 
     <div class="section-head" style="margin-top:34px;margin-bottom:14px">
-      <div class="lang-es"><h3 style="font-size:1.25rem">Gente real usándolas</h3><p style="margin:0">Fotos de hombres y mujeres en México con las playeras. (Tómalas allá o usa las de tus listados.)</p></div>
-      <div class="lang-en"><h3 style="font-size:1.25rem">Real people wearing them</h3><p style="margin:0">Photos of men and women in Mexico in the tees. (Shoot them there or use your listing photos.)</p></div>
+      <div class="lang-es"><h3 style="font-size:1.25rem">Hechas para venderse en TikTok</h3><p style="margin:0">Imágenes de estilo de vida listas para tus videos y listados — el contenido que hace que la gente compre.</p></div>
+      <div class="lang-en"><h3 style="font-size:1.25rem">Made to sell on TikTok</h3><p style="margin:0">Lifestyle imagery ready for your videos and listings — the content that makes people buy.</p></div>
     </div>
     <div class="lifestyle">
       <figure class="lstyle"><img src="img/modelo-1.jpg" onerror="this.parentNode.innerHTML='&lt;div class=\'slot\'&gt;Foto / Photo<br>img/modelo-1.jpg&lt;/div&gt;'" alt=""></figure>
@@ -353,7 +407,7 @@
 </section>
 
 <!-- ===================== WHY TIKTOK SHOP MX ===================== -->
-<section>
+<section class="px px-dark" style="background-image:url('img/bg-creators.jpg')">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker"><span class="lang-es">La oportunidad</span><span class="lang-en">The opportunity</span></div>
@@ -492,7 +546,7 @@
       </div>
       <div>
         <div class="kicker"><span class="lang-es">Por qué la manufactura importa</span><span class="lang-en">Why manufacturing matters</span></div>
-        <img class="featimg" style="margin-bottom:16px" src="img/fabrica.svg" alt="Manufactura y envío rápido" />
+        <img class="featimg" style="margin-bottom:16px" src="img/bg-fulfillment.jpg" onerror="this.onerror=null;this.src='img/fabrica.svg'" alt="Manufactura y envío rápido" />
         <div class="lang-es">
           <h2 style="font-size:1.5rem">Envíos rápidos = ventaja real</h2>
           <p>Uno de los mayores retos en TikTok Shop México es el surtido. TikTok exige envíos rápidos, y muchos vendedores batallan porque no pueden fabricar a tiempo.</p>
@@ -579,7 +633,7 @@
 </section>
 
 <!-- ===================== CTA / QR ===================== -->
-<section id="contacto">
+<section id="contacto" class="px px-cta" style="background-image:url('img/bg-money.jpg')">
   <div class="wrap">
     <div class="cta">
       <div>
@@ -627,7 +681,7 @@
   <h1>Lanza tu propia tienda en TikTok Shop México</h1>
   <p class="sub"><em>Launch your own store on TikTok Shop Mexico — partner with a team already selling.</em></p>
   <div class="proofbar">
-    <span>✓ 50–100+ pedidos/día</span><span>✓ 75k–105k+ MXN/mes</span><span>✓ $4k–6k+ USD/mes</span><span>✓ Tiendas ya operando</span>
+    <span>✓ 2,199 pedidos en total</span><span>✓ $174K MXN/mes</span><span>✓ $10K+ USD/mes</span><span>✓ 6 tiendas operando</span>
   </div>
   <div class="flyer-cols">
     <div>
@@ -677,7 +731,25 @@ const CONFIG = {
   phoneDisplay:    "+1 (216) 310-2050",
   tiktokShopUrl:   "https://seller-mx.tiktok.com/account/register", // ⚠️ link para abrir tienda TikTok Shop MX (o tu link de invitación)
   whatsappMessage: "Hola, vi la página de TikTienda y quiero información para aplicar.",
-  siteUrl:         "https://tiktienda.shop/" // dominio propio → es lo que abre el QR
+  siteUrl:         "https://tiktienda.shop/", // dominio propio → es lo que abre el QR
+
+  /* ============================================================
+     👉 NUESTRAS TIENDAS — datos REALES del ERP (妙手 / Miaoshou),
+     ventas pagadas, 1 CNY = 2.56278 MXN. Por privacidad NO se
+     muestran @usuario ni enlaces.
+       status "proven" → muestra pedidos/mes · MXN/mes · clientes
+       status "new"    → tienda recién lanzada; muestra pedidos de
+                         esta semana (weekOrders) o "recién abierta"
+     Deja el array vacío [] para ocultar la sección.
+     ============================================================ */
+  stores: [
+    { name:"Balany shop",      status:"proven", orders30d:1403, gmv30dMXN:141228, customers30d:1326 },
+    { name:"Scorpion Bay",     status:"proven", orders30d:247,  gmv30dMXN:25114,  customers30d:228 },
+    { name:"La Tiendita Nice", status:"new",    weekOrders:67 },
+    { name:"Capamelo Store",   status:"new",    weekOrders:43 },
+    { name:"Salditos",         status:"new",    weekOrders:9 },
+    { name:"Yessica River",    status:"new",    weekOrders:0 }
+  ]
 };
 /* ============================================================ */
 
@@ -694,6 +766,48 @@ function makeQR(id,size){
   else{ var i=document.createElement("img"); i.src="https://api.qrserver.com/v1/create-qr-code/?size="+size+"x"+size+"&data="+encodeURIComponent(CONFIG.siteUrl); i.width=size; i.height=size; el.appendChild(i); }
 }
 makeQR("qrcode",170); makeQR("flyer-qr",150);
+
+/* ===== Our Stores (renders from CONFIG.stores) ===== */
+function fmtInt(n){return (n==null||n==="")?"—":Number(n).toLocaleString("es-MX");}
+function fmtMoneyK(n){if(n==null||n==="")return "—";n=Number(n);return n>=1000?("$"+Math.round(n/1000)+"k"):("$"+Math.round(n));}
+function fmtFollowers(n){if(n==null||n==="")return "—";n=Number(n);return n>=1000?((Math.round(n/100)/10)+"k"):String(n);}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function renderStores(){
+  var grid=document.getElementById("stores-grid");
+  var sec=document.getElementById("tiendas");
+  var list=(CONFIG.stores||[]).filter(function(s){return s&&s.name;});
+  if(!grid||!sec){return;}
+  if(!list.length){sec.style.display="none";return;}
+  grid.innerHTML=list.map(function(s){
+    var isNew=s.status==="new";
+    var initials=(s.name||"?").replace(/[^A-Za-zÀ-ÿ0-9 ]/g,"").trim().split(/\s+/).slice(0,2).map(function(w){return w[0]||"";}).join("").toUpperCase()||"#";
+    var av=s.avatar?('<img class="store-av" src="'+esc(s.avatar)+'" alt="">'):('<div class="store-av">'+esc(initials)+'</div>');
+    // names + numbers only — no @handle / public link (keeps live stores private)
+    var sub=s.subtitle?esc(s.subtitle):'<span class="lang-es">TikTok Shop México</span><span class="lang-en">TikTok Shop Mexico</span>';
+    var badge=isNew
+      ? '<span class="store-live new"><i></i><span class="lang-es">Nueva</span><span class="lang-en">New</span></span>'
+      : '<span class="store-live"><i></i><span class="lang-es">En vivo</span><span class="lang-en">Live</span></span>';
+    var body;
+    if(isNew){
+      var wk=Number(s.weekOrders||0);
+      body=wk>0
+        ? '<div class="store-new"><div class="v">'+fmtInt(wk)+'</div><div class="k"><span class="lang-es">pedidos en su primera semana 🚀</span><span class="lang-en">orders in its first week 🚀</span></div></div>'
+        : '<div class="store-new"><span class="msg"><span class="lang-es">Recién lanzada · primeras ventas en camino</span><span class="lang-en">Just launched · first sales on the way</span></span></div>';
+    }else{
+      body='<div class="store-stats">'+
+        '<div><div class="v">'+fmtInt(s.orders30d)+'</div><div class="k"><span class="lang-es">pedidos/mes</span><span class="lang-en">orders/mo</span></div></div>'+
+        '<div><div class="v">'+fmtMoneyK(s.gmv30dMXN)+'</div><div class="k"><span class="lang-es">MXN/mes</span><span class="lang-en">MXN/mo</span></div></div>'+
+        '<div><div class="v">'+fmtInt(s.customers30d)+'</div><div class="k"><span class="lang-es">clientes</span><span class="lang-en">customers</span></div></div>'+
+      '</div>';
+    }
+    return '<div class="store-card">'+
+      '<div class="store-top">'+av+
+        '<div class="store-id"><b>'+esc(s.name)+'</b><span>'+sub+'</span></div>'+badge+
+      '</div>'+body+
+    '</div>';
+  }).join("");
+}
+renderStores();
 
 /* (Form removed — the flow is now Open Shop + Contact on WhatsApp, no form.) */
 

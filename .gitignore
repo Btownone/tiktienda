@@ -1,2 +1,6 @@
 node_modules/
 .DS_Store
+
+# internal — never publish to the public GitHub Pages repo
+ERP_DATA_REQUEST.md
+gen-backgrounds.mjs
