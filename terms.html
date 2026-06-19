@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Términos y Condiciones — TikTienda</title>
+<link rel="icon" type="image/png" href="img/logo-icon.png" />
+<meta name="description" content="Términos y condiciones de TikTienda — naturaleza de la sociedad, riesgos y avisos." />
+<style>
+  :root{--bg:#0a0a0f;--card:#16161f;--ink:#f5f5fa;--ink-soft:#bcbcca;--ink-mute:#8a8a9c;--pink:#fe2c55;--cyan:#25f4ee;--line:rgba(255,255,255,.09)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,10,15,.8);backdrop-filter:blur(10px);z-index:10}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:var(--ink)}
+  .brand img{width:34px;height:34px;border-radius:9px;display:block}
+  .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .toggle button{background:transparent;color:var(--ink-soft);border:0;padding:6px 12px;cursor:pointer;font:inherit;font-weight:700;font-size:.82rem}
+  .toggle button.active{background:var(--ink);color:#0a0a0f}
+  h1{font-size:clamp(1.6rem,4vw,2.1rem);margin:30px 0 4px;letter-spacing:-.02em}
+  h2{font-size:1.12rem;margin:26px 0 6px}
+  p,li{color:var(--ink-soft)}
+  a{color:var(--cyan)}
+  .updated{color:var(--ink-mute);font-size:.88rem;margin-top:0}
+  .back{display:inline-block;margin:34px 0 56px;color:var(--ink-soft);text-decoration:none;font-weight:700}
+  .back:hover{color:var(--ink)}
+  footer{border-top:1px solid var(--line);padding:22px 0;color:var(--ink-mute);font-size:.82rem}
+  .lang-en{display:none}
+  body.en .lang-es{display:none}
+  body.en .lang-en{display:block}
+  span.lang-es,span.lang-en{display:none}
+  span.lang-es{display:inline}
+  body.en span.lang-es{display:none}
+  body.en span.lang-en{display:inline}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="brand" href="index.html"><img src="img/logo-icon.png" alt="" /> TikTienda</a>
+  <div class="toggle" role="group" aria-label="idioma">
+    <button id="es" class="active" onclick="setLang('es')">ES</button>
+    <button id="en" onclick="setLang('en')">EN</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="lang-es">
+    <h1>Términos y Condiciones</h1>
+    <p class="updated">Última actualización: 19 de junio de 2026</p>
+
+    <h2>1. Qué es esta sociedad</h2>
+    <p>TikTienda facilita una sociedad de colaboración: <strong>tú eres el dueño de tu cuenta y tienda de TikTok Shop México</strong>; nuestro equipo internacional ayuda a operarla, fabricar los productos y enviarlos. No cobramos por darte un "curso" ni vendemos una franquicia.</p>
+
+    <h2>2. No garantizamos ingresos</h2>
+    <p>Las cifras y resultados que mostramos provienen de tiendas reales que ya operamos y son históricos a la fecha indicada. <strong>No son una promesa ni una garantía de los resultados que tú obtendrás.</strong> Las ventas dependen de muchos factores (producto, demanda, cumplimiento de plazos, políticas de la plataforma y del mercado) y pueden variar o no ocurrir.</p>
+
+    <h2>3. Sin afiliación con TikTok</h2>
+    <p>TikTienda es un servicio independiente y <strong>no está afiliado, patrocinado ni respaldado por TikTok, TikTok Shop ni ByteDance</strong>. "TikTok" y marcas relacionadas pertenecen a sus respectivos dueños.</p>
+
+    <h2>4. Tu responsabilidad</h2>
+    <p>Para participar debes cumplir con los requisitos y reglas de TikTok Shop México y con la ley mexicana, y proporcionar información veraz (por ejemplo, identificación y RFC válidos cuando la plataforma lo solicite). Eres responsable de tu cuenta y del cumplimiento de las políticas de la plataforma.</p>
+
+    <h2>5. Riesgos</h2>
+    <p>Como en cualquier negocio, existen riesgos: las políticas de la plataforma pueden cambiar, pueden ocurrir problemas de envío o disputas con clientes, y las tendencias de productos cambian con el tiempo. Trabajamos en conjunto para gestionarlos, pero no podemos eliminarlos.</p>
+
+    <h2>6. Exactitud de la información</h2>
+    <p>Las estadísticas se toman de nuestro panel (ERP) a una fecha determinada y pueden cambiar. Hacemos un esfuerzo razonable por mantenerlas actualizadas.</p>
+
+    <h2>7. Contacto</h2>
+    <p>WhatsApp: <a id="wa-es" href="#" target="_blank" rel="noopener">enviar mensaje</a><span id="email-es"></span></p>
+  </div>
+
+  <div class="lang-en">
+    <h1>Terms &amp; Conditions</h1>
+    <p class="updated">Last updated: June 19, 2026</p>
+
+    <h2>1. What this partnership is</h2>
+    <p>TikTienda facilitates a collaborative partnership: <strong>you own your TikTok Shop Mexico account and store</strong>; our international team helps operate it, manufacture the products, and ship them. We do not charge for a "course" and we do not sell a franchise.</p>
+
+    <h2>2. No guaranteed income</h2>
+    <p>The figures and results we show come from real stores we already operate and are historical as of the date indicated. <strong>They are not a promise or guarantee of the results you will get.</strong> Sales depend on many factors (product, demand, meeting deadlines, platform and market policies) and may vary or not happen.</p>
+
+    <h2>3. No affiliation with TikTok</h2>
+    <p>TikTienda is an independent service and is <strong>not affiliated with, sponsored by, or endorsed by TikTok, TikTok Shop, or ByteDance</strong>. "TikTok" and related marks belong to their respective owners.</p>
+
+    <h2>4. Your responsibility</h2>
+    <p>To participate you must comply with TikTok Shop Mexico's requirements and rules and with Mexican law, and provide truthful information (for example, valid ID and RFC when the platform requires it). You are responsible for your account and for complying with platform policies.</p>
+
+    <h2>5. Risks</h2>
+    <p>As with any business, there are risks: platform policies can change, shipping issues or customer disputes can occur, and product trends change over time. We work together to manage them, but we cannot eliminate them.</p>
+
+    <h2>6. Accuracy of information</h2>
+    <p>Statistics are taken from our dashboard (ERP) as of a given date and may change. We make a reasonable effort to keep them up to date.</p>
+
+    <h2>7. Contact</h2>
+    <p>WhatsApp: <a id="wa-en" href="#" target="_blank" rel="noopener">send a message</a><span id="email-en"></span></p>
+  </div>
+
+  <a class="back" href="index.html">← <span class="lang-es">Volver al inicio</span><span class="lang-en">Back to home</span></a>
+</main>
+
+<footer><div class="wrap">
+  <span class="lang-es">© 2026 TikTienda · TikTok es marca de sus respectivos dueños.</span>
+  <span class="lang-en">© 2026 TikTienda · TikTok is a trademark of its respective owners.</span>
+</div></footer>
+
+<script>
+  function setLang(l){document.documentElement.lang=l;document.body.classList.toggle("en",l==="en");
+    document.getElementById("es").classList.toggle("active",l==="es");
+    document.getElementById("en").classList.toggle("active",l==="en");
+    try{localStorage.setItem("ttshop_lang",l);}catch(e){}}
+  var s="es";try{s=localStorage.getItem("ttshop_lang")||"es";}catch(e){}
+  setLang(s);
+  var WA="https://wa.me/12163102050?text="+encodeURIComponent("Hola, tengo una duda sobre los términos de TikTienda.");
+  ["wa-es","wa-en"].forEach(function(id){var e=document.getElementById(id);if(e)e.href=WA;});
+  var EMAIL=""; /* pon aquí un correo real (ej. hola@tiktienda.shop) para mostrarlo */
+  if(EMAIL){["email-es","email-en"].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML=" · Email: <a href='mailto:"+EMAIL+"'>"+EMAIL+"</a>";});}
+</script>
+</body>
+</html>

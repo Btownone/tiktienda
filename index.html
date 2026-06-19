@@ -72,6 +72,10 @@
   .section-head{max-width:680px;margin-bottom:26px}
   .alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  /* lang toggle for flex rows (.pill-row sets display:flex, which would otherwise beat .lang-en{display:none}) */
+  .pill-row.lang-en{display:none}
+  body.en .pill-row.lang-es{display:none}
+  body.en .pill-row.lang-en{display:flex}
   .pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 15px;font-weight:600;color:var(--ink-soft);font-size:.95rem}
 
   /* hero */
@@ -246,6 +250,14 @@
   .kpi .v{font-size:clamp(1.2rem,2.5vw,1.65rem);font-weight:900;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .kpi .k{font-size:.78rem;color:var(--ink-mute);margin-top:2px}
 
+  /* ===== footer ===== */
+  .foot-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:26px;margin-bottom:18px}
+  @media(max-width:720px){.foot-grid{grid-template-columns:1fr}}
+  .foot-links{display:flex;flex-direction:column;gap:9px}
+  .foot-links a{color:var(--ink-soft);text-decoration:none;font-weight:600;font-size:.9rem}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-legal{font-size:.82rem;border-top:1px solid var(--line);padding-top:14px}
+
   /* ===== PRINT: one-page bilingual flyer ===== */
   .flyer{display:none}
   @media print{
@@ -323,6 +335,7 @@
       <div class="stat"><div class="n">$10K+</div><div class="l"><span class="lang-es">USD en ventas / mes</span><span class="lang-en">USD in sales / month</span></div></div>
       <div class="stat"><div class="n">2,058</div><div class="l"><span class="lang-es">clientes atendidos</span><span class="lang-en">customers served</span></div></div>
     </div>
+    <p class="muted" style="margin-top:12px;font-size:.82rem;max-width:680px"><span class="lang-es">Cifras reales de nuestras tiendas (panel ERP). Son resultados históricos, no una promesa de ingresos — las ventas no están garantizadas.</span><span class="lang-en">Real figures from our stores (ERP dashboard). These are historical results, not a promise of income — sales are not guaranteed.</span></p>
 
     <div class="hero-media">
       <div class="datapanel">
@@ -707,8 +720,25 @@
 
 <footer>
   <div class="wrap">
-    <span class="lang-es">© 2026 TikTienda · No afiliado oficialmente a TikTok. TikTok es marca de sus respectivos dueños. Las ventas no están garantizadas.</span>
-    <span class="lang-en">© 2026 TikTienda · Not officially affiliated with TikTok. TikTok is a trademark of its respective owners. Sales are not guaranteed.</span>
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px"><img class="logo" src="img/logo-icon.png" alt=""> TikTienda</div>
+        <p class="muted" style="font-size:.85rem;margin:0">
+          <span class="lang-es">TikTienda es un servicio independiente que conecta a vendedores en México con un equipo internacional de e-commerce para abrir y operar tiendas en TikTok Shop México. No estamos afiliados oficialmente a TikTok ni a ByteDance.</span>
+          <span class="lang-en">TikTienda is an independent service connecting sellers in Mexico with an international e-commerce team to open and operate TikTok Shop Mexico stores. We are not officially affiliated with TikTok or ByteDance.</span>
+        </p>
+      </div>
+      <div class="foot-links">
+        <a href="privacy.html"><span class="lang-es">Aviso de Privacidad</span><span class="lang-en">Privacy Policy</span></a>
+        <a href="terms.html"><span class="lang-es">Términos y Condiciones</span><span class="lang-en">Terms &amp; Conditions</span></a>
+        <a id="foot-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="foot-email" href="#" style="display:none"></a>
+      </div>
+    </div>
+    <div class="foot-legal muted">
+      <span class="lang-es">© 2026 TikTienda · TikTok es marca de sus respectivos dueños. Los resultados mostrados son reales pero no garantizan ingresos futuros. Las ventas no están garantizadas.</span>
+      <span class="lang-en">© 2026 TikTienda · TikTok is a trademark of its respective owners. Results shown are real but do not guarantee future income. Sales are not guaranteed.</span>
+    </div>
   </div>
 </footer>
 
@@ -781,6 +811,7 @@ const CONFIG = {
   tiktokShopUrl:   "https://seller-mx.tiktok.com/account/register", // ⚠️ link para abrir tienda TikTok Shop MX (o tu link de invitación)
   whatsappMessage: "Hola, vi la página de TikTienda y quiero información para aplicar.",
   siteUrl:         "https://tiktienda.shop/", // dominio propio → es lo que abre el QR
+  contactEmail:    "",                         // opcional → si lo pones (ej. hola@tiktienda.shop) aparece en el pie y da más confianza/legitimidad
 
   /* ============================================================
      👉 NUESTRAS TIENDAS — datos REALES del ERP (妙手 / Miaoshou),
@@ -803,8 +834,9 @@ const CONFIG = {
 /* ============================================================ */
 
 const waHref = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
-["wa-top","wa-hero","wa-cta","wa-fab","wa-apply","go-whatsapp"].forEach(function(id){var e=document.getElementById(id); if(e) e.href=waHref;});
+["wa-top","wa-hero","wa-cta","wa-fab","wa-apply","go-whatsapp","foot-wa"].forEach(function(id){var e=document.getElementById(id); if(e) e.href=waHref;});
 var goT=document.getElementById("go-tiktok"); if(goT) goT.href=CONFIG.tiktokShopUrl;
+var fe=document.getElementById("foot-email"); if(fe&&CONFIG.contactEmail){fe.href="mailto:"+CONFIG.contactEmail;fe.textContent=CONFIG.contactEmail;fe.style.display="";}
 function setText(id,v){var e=document.getElementById(id); if(e) e.textContent=v;}
 setText("contact-name",CONFIG.contactName); setText("contact-phone",CONFIG.phoneDisplay);
 setText("flyer-name",CONFIG.contactName); setText("flyer-phone",CONFIG.phoneDisplay);
