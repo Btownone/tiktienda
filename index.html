@@ -57,8 +57,8 @@
   .btn:active{transform:translateY(1px)}
   .btn-wa{background:var(--green);color:#06310f;box-shadow:0 10px 24px rgba(37,211,102,.28)}
   .btn-wa:hover{box-shadow:0 14px 30px rgba(37,211,102,.42)}
-  .btn-primary{background:var(--grad);color:#0a0a0f;box-shadow:0 10px 26px rgba(254,44,85,.32)}
-  .btn-primary:hover{box-shadow:0 16px 34px rgba(254,44,85,.45)}
+  .btn-primary{background:var(--pink);color:#fff;box-shadow:0 10px 26px rgba(254,44,85,.32)}
+  .btn-primary:hover{filter:brightness(1.08);box-shadow:0 16px 34px rgba(254,44,85,.45)}
   .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
   .btn-ghost:hover{border-color:rgba(255,255,255,.35)}
   .btn-sm{padding:8px 14px;font-size:.9rem}
@@ -317,7 +317,7 @@
     </div>
 
     <div class="hero-cta">
-      <a class="btn btn-primary btn-lg" href="#empezar"><span class="lang-es">🚀 Abre tu tienda ahora</span><span class="lang-en">🚀 Open your shop now</span></a>
+      <a class="btn btn-primary btn-lg" id="go-tiktok-hero" href="#" target="_blank" rel="noopener"><span class="lang-es">🚀 Abre tu tienda ahora</span><span class="lang-en">🚀 Open your shop now</span></a>
       <a class="btn btn-wa btn-lg" id="wa-hero" href="#" target="_blank" rel="noopener">
         <svg class="svg-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.107z"/></svg>
         <span class="lang-es">Contáctanos por WhatsApp</span><span class="lang-en">Contact us on WhatsApp</span>
@@ -743,7 +743,7 @@
 </footer>
 
 <div class="actionbar">
-  <a class="btn btn-primary actionbar-main" href="#empezar"><span class="lang-es">🚀 Abre tu tienda</span><span class="lang-en">🚀 Open your shop</span></a>
+  <a class="btn btn-primary actionbar-main" id="go-tiktok-bar" href="#" target="_blank" rel="noopener"><span class="lang-es">🚀 Abre tu tienda</span><span class="lang-en">🚀 Open your shop</span></a>
   <a class="btn btn-wa actionbar-wa" id="wa-fab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg class="svg-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.107z"/></svg>
   </a>
@@ -835,7 +835,7 @@ const CONFIG = {
 
 const waHref = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
 ["wa-top","wa-hero","wa-cta","wa-fab","wa-apply","go-whatsapp","foot-wa"].forEach(function(id){var e=document.getElementById(id); if(e) e.href=waHref;});
-var goT=document.getElementById("go-tiktok"); if(goT) goT.href=CONFIG.tiktokShopUrl;
+["go-tiktok","go-tiktok-hero","go-tiktok-bar"].forEach(function(id){var e=document.getElementById(id); if(e){e.href=CONFIG.tiktokShopUrl; e.target="_blank"; e.rel="noopener";}});
 var fe=document.getElementById("foot-email"); if(fe&&CONFIG.contactEmail){fe.href="mailto:"+CONFIG.contactEmail;fe.textContent=CONFIG.contactEmail;fe.style.display="";}
 function setText(id,v){var e=document.getElementById(id); if(e) e.textContent=v;}
 setText("contact-name",CONFIG.contactName); setText("contact-phone",CONFIG.phoneDisplay);
