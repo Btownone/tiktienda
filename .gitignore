@@ -4,3 +4,4 @@ node_modules/
 # internal — never publish to the public GitHub Pages repo
 ERP_DATA_REQUEST.md
 gen-backgrounds.mjs
+gen-proof.mjs
