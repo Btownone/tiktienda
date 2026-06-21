@@ -306,6 +306,17 @@
   .proofgrid img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
   .proofgrid figcaption{padding:9px 11px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
 
+  /* ===== founder note ===== */
+  .founder{max-width:800px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:var(--radius);padding:28px 30px}
+  @media(max-width:600px){.founder{padding:22px 20px}}
+  .founder .q{font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.65;color:var(--ink);margin:0}
+  .founder .sig{margin-top:16px;font-weight:800;color:var(--ink)}
+  .founder .sig span{font-weight:600;color:var(--ink-mute);font-size:.9rem}
+  .founder .sig span.lang-es{display:block}
+  .founder .sig span.lang-en{display:none}
+  body.en .founder .sig span.lang-es{display:none}
+  body.en .founder .sig span.lang-en{display:block}
+
   /* ===== PRINT: one-page bilingual flyer ===== */
   .flyer{display:none}
   @media print{
@@ -606,6 +617,20 @@
       <div class="flow-step"><div class="fi">🚚</div><div><b><span class="lang-es">TikTok entrega al cliente</span><span class="lang-en">TikTok delivers to the customer</span></b><span><span class="lang-es">envío rápido, dentro de los plazos</span><span class="lang-en">fast shipping, on time</span></span></div></div>
       <div class="flow-arrow">↓</div>
       <div class="flow-step"><div class="fi">💸</div><div><b><span class="lang-es">Tú cobras</span><span class="lang-en">You get paid</span></b><span><span class="lang-es">$0.40 USD por unidad, vía Wise</span><span class="lang-en">$0.40 USD per unit, via Wise</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOUNDER NOTE ===================== -->
+<section id="nota">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto">
+      <div class="kicker"><span class="lang-es">Una nota del fundador</span><span class="lang-en">A note from the founder</span></div>
+    </div>
+    <div class="founder">
+      <p class="q lang-es">"Llevo años en e-commerce en Estados Unidos — mi equipo y yo hemos entregado <strong>más de 900,000 pedidos</strong>. Hoy veo en TikTok Shop México la misma oportunidad que vi en Amazon hace años, y la quiero construir contigo. Sé que dar tus datos pone nervioso a cualquiera; por eso <strong>la tienda queda a tu nombre, el dinero llega a tu banco, y puedes quitarnos el acceso cuando quieras.</strong> Si entras temprano y trabajamos juntos, podemos construir algo grande."</p>
+      <p class="q lang-en">"I've spent years in e-commerce in the United States — my team and I have delivered <strong>over 900,000 orders</strong>. Today I see in TikTok Shop Mexico the same opportunity I saw in Amazon years ago, and I want to build it with you. I know handing over your information makes anyone nervous; that's why <strong>the store stays in your name, the money goes to your bank, and you can remove our access whenever you want.</strong> Get in early, work with us, and we can build something big."</p>
+      <div class="sig">— Bernardo <span class="lang-es">Fundador · TikTienda</span><span class="lang-en">Founder · TikTienda</span></div>
     </div>
   </div>
 </section>
