@@ -5,3 +5,5 @@ node_modules/
 ERP_DATA_REQUEST.md
 gen-backgrounds.mjs
 gen-proof.mjs
+
+gen-model.mjs
