@@ -295,6 +295,10 @@
   .proofgrid figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
   .proofgrid img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
   .proofgrid figcaption{padding:9px 11px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+  /* best-seller showcase */
+  .bestseller{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .bestseller img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;background:#fff}
+  .bestseller figcaption{padding:16px 18px}
 
   /* ===== founder note ===== */
   .founder{max-width:800px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pink);border-radius:var(--radius);padding:28px 30px}
